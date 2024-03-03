@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SuperHeroesSchema } from './schema/super-heroes.schema';
 import { SuperHeroesService } from './super-heroes.service';
+import { SuperHeroesController } from './super-heroes.controller';
 
 @Module({
 	imports: [
@@ -11,7 +12,8 @@ import { SuperHeroesService } from './super-heroes.service';
 			collection: 'SuperHeroes'
 		}])
 	],
-	providers: [SuperHeroesService]
+	providers: [SuperHeroesService],
+	controllers: [SuperHeroesController]
 })
 
 export class SuperHeroesModule { }
