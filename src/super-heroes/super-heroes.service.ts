@@ -10,4 +10,9 @@ export class SuperHeroesService {
 	async getAll(): Promise<SuperHeroes[]> {
 		return this.superHeroModel.find().exec();
 	}
+
+	async create(superHeroes: SuperHeroes) {
+		const newSuperHero = new this.superHeroModel(superHeroes);
+		return newSuperHero.save();
+	}
 }
