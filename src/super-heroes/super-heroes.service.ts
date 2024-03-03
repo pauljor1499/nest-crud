@@ -15,4 +15,13 @@ export class SuperHeroesService {
 		const newSuperHero = new this.superHeroModel(superHeroes);
 		return newSuperHero.save();
 	}
+
+	async getByID(id: string) {
+		return this.superHeroModel.findById(id).exec();
+	}
+
+	async update(id: string, superHeroes: SuperHeroes) {
+		return await this.superHeroModel.findByIdAndUpdate(id, superHeroes, { new: true });
+	}
+
 }
