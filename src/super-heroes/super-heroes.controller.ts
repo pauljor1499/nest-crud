@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { SuperHeroesService } from './super-heroes.service';
 import { SuperHeroes } from './schema/super-heroes.schema';
 
@@ -25,5 +25,10 @@ export class SuperHeroesController {
 	@Put('/:id')
 	async updateSuperHeroes(@Param('id') id: string, @Body() superHeroes: SuperHeroes) {
 		return await this.superHeroesService.update(id, superHeroes);
+	}
+
+	@Delete('/:id')
+	async deleteSuperHero(@Param('id') id: string) {
+		await this.superHeroesService.delete(id);
 	}
 }

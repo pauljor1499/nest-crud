@@ -24,4 +24,8 @@ export class SuperHeroesService {
 		return await this.superHeroModel.findByIdAndUpdate(id, superHeroes, { new: true });
 	}
 
+	async delete(id: string) {
+		await this.superHeroModel.findByIdAndDelete(id);
+	}
+
 }
